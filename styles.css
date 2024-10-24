@@ -49,6 +49,15 @@ h3 {
     line-height: 0%;
 }
 
+h4 {
+    color: var(--black);
+    font-family: var(--schibsted-grotesk);
+    font-size: max(1.25vw, 12px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0%;
+}
+
 p {
     color: var(--black);
     font-family: var(--schibsted-grotesk);
@@ -153,6 +162,32 @@ a {
     z-index: 1;
 }
 
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recipe-grid {
+    display: grid;
+    gap: 1vw;
+    grid-auto-rows: max(300px, auto);
+    grid-template-columns: repeat(4, 1fr);
+    width: auto;
+}
+
+.recipe-card {
+    align-items: end;
+    border: 2px solid var(--black);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: min(300px, 15vw);
+    justify-content: end;
+    padding-right: 0.75vw;
+    width: min(300px, 15vw);
+}
+
 @media (width <= 900px) {
     .navigation input[type=text] {
         font-size: max(1vw, 16px);
@@ -162,6 +197,11 @@ a {
     .navigation .search-box button {
         font-size: max(1vw, 16px);
         padding: 0.25vw 0.5vw;
+    }
+
+    .recipe-grid {
+        gap: 0.75vw;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -185,5 +225,10 @@ a {
         display: flex;
         flex-direction: row;
         justify-content: end;
+    }
+
+    .recipe-grid {
+        gap: 0.5vw;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
