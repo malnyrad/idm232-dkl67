@@ -1,0 +1,5 @@
+SetEnv DB_SERVER localhost
+SetEnv DB_USER dkl67
+SetEnv DB_PASS wf4itv4/E3f0EfSS
+SetEnv DB_NAME dkl67_db
+ErrorDocument 404 /no-results.php
