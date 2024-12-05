@@ -34,12 +34,24 @@
                 if ($connection->connect_error) {
                     die("Connection failed: " . $connection->connect_error);
                 }
+                
+                // check for search form submission
+                if (isset($_POST['search'])) {
+                    // get query
+                    $search = $_POST['search'];
+                    // prevent sql injection
+                    $search = $connection->real_escape_string($search);
+                    // sql query to search recipes database
+                    $sql = "SELECT * FROM recipes WHERE recipe_name LIKE '%$search%' OR recipe LIKE '%$search%' OR cuisine LIKE '%$search%'";
+                    $result = $connection->query($sql);
+                } else {
+                    // default query if no search term is entered
+                    $sql = "SELECT * FROM recipes";
+                    $result = $connection->query($sql);
+                }
 
-                // fetch recipes from database
-                $sql = "SELECT id, recipe_name, cuisine, cook_time, servings, hero_image FROM recipes";
-                $result = $connection->query($sql);
-
-                if ($result && $result->num_rows > 0) {
+                // display search results
+                if ($result->num_rows > 0) {
                     // display recipes
                     while ($row = $result->fetch_assoc()) {
                         // get path to hero image from database, show default if no image exists
@@ -55,12 +67,12 @@
                         echo '</article>';
                     }
                 } else {
-                    echo '<p>No recipes found. Try searching again.</p>';
+                    echo "<p>No recipes found. Try searching again.</p>";
                 }
                 // close the connection
                 $connection->close();
             ?>
         </section>
     </main>
- </body>
+</body>
 </html>

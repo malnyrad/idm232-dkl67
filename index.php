@@ -13,12 +13,7 @@
             <a href="#home"><i class="fa fa-cutlery logo"></i></a>
             <a class="active" href="#home">HOME</a>
             <a href="recipes.php">RECIPES</a>
-            <a href="help.html">HELP</a>
-        </div>
-        <div class="search-box">
-            <form action="no-results.html">
-              <input class="search-text" type="text" placeholder="search..." name="search"><button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            <a href="help.php">HELP</a>
         </div>
     </header>
     <section class="hero-block">
