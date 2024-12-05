@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORK'D | a recipe</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
                         // fetch recipe data
                         $recipe = $result->fetch_assoc();
                     } else {
-                        echo "<p>Recipe not found.</p>";
+                        echo '<p>Recipe not found.</p>';
                         exit;
                     }
                 } else {
@@ -50,8 +50,15 @@
             <?php
                 echo '<section>';
                 echo '<h3>' . htmlspecialchars($recipe['recipe']) . '</h3>';
-                echo '<h4>' . htmlspecialchars($recipe['title']) . '</h4>';
+                echo '<h4>' . htmlspecialchars($recipe['subtitle']) . '</h4>';
+                if (!empty($recipe['hero_image'])) {
+                    echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
+                } else {
+                    echo '<p>Image not available.</p>';
+                }
                 echo '</section>';
+
+
             ?>
 
         </section>

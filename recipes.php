@@ -46,12 +46,12 @@
                         $imagePath = (!empty($row['hero_image']) && file_exists($row['hero_image'])) 
                                     ? $row['hero_image'] 
                                     : '';
-                        echo '<article class = "recipe-card">';
-                        echo '<a href = "recipe.php?id=' . $row["id"] . '">'; // link = recipe id
-                        echo '<img src = "' . htmlspecialchars($imagePath) . '" alt = "' . htmlspecialchars($row["recipe_name"]) . '">';
-                        echo '<h4>' . htmlspecialchars($row["recipe_name"]) . '</h4>';
+                        echo '<article class="recipe-card">';
+                        echo '<a href="recipe.php?id=' . $row['id'] . '">'; // link = recipe id
+                        echo '<img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row['recipe_name']) . '">';
+                        echo '<h4>' . htmlspecialchars($row['recipe_name']) . '</h4>';
                         echo '</a>';
-                        echo '<p>' . htmlspecialchars($row["cuisine"]) . ' | ' . $row["cook_time"] . ' | ' . $row["servings"] . '</p>';
+                        echo '<p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>';
                         echo '</article>';
                     }
                 } else {
