@@ -8,14 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="navigation">
-        <div class="links">
-            <a href="#home"><i class="fa fa-cutlery logo"></i></a>
-            <a class="active" href="#home">HOME</a>
-            <a href="recipes.php">RECIPES</a>
-            <a href="help.php">HELP</a>
-        </div>
-    </header>
+    <?php include_once 'header.php' ?>
     <section class="hero-block">
         <h1>FORK'D</h1>
         <h2>find your next bite</h2>

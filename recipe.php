@@ -39,14 +39,7 @@ ini_set('display_startup_errors', 1);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="navigation">
-        <div class="links">
-            <a href="index.php"><i class="fa fa-cutlery logo"></i></a>
-            <a href="index.php">Home</a>
-            <a class="active" href="recipes.php">Recipes</a>
-            <a href="help.php">Help</a>
-        </div>
-    </header>
+    <?php include_once 'header.php' ?>
     <main>
         <?php    
             // recipe stats: title, hero image, cook time, servings, description
