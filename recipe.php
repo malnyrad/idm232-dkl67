@@ -48,14 +48,20 @@
 
 
             <?php
-                echo '<section>';
-                echo '<h3>' . htmlspecialchars($recipe['recipe']) . '</h3>';
-                echo '<h4>' . htmlspecialchars($recipe['subtitle']) . '</h4>';
-                if (!empty($recipe['hero_image'])) {
-                    echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
-                } else {
-                    echo '<p>Image not available.</p>';
-                }
+                echo '<section class="recipe-stats">';
+                    echo '<h3>' . htmlspecialchars($recipe['recipe']) . '</h3>';
+                    echo '<h4>' . htmlspecialchars($recipe['subtitle']) . '</h4>';
+                    echo '<div class="cook-time">';
+                        echo '<i class="fa fa-clock-o"></i>';
+                        echo '<p>' . htmlspecialchars($recipe['cook_time']) . '</p>';
+                    echo '</div>';
+                    echo '<p>' . htmlspecialchars($recipe['servings']) . '</p>';
+                    if (!empty($recipe['hero_image'])) {
+                        echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
+                    } else {
+                        echo '<p>Image not available.</p>';
+                    }
+                    echo '<p>' . htmlspecialchars($recipe['description']) . '</p>';
                 echo '</section>';
 
 

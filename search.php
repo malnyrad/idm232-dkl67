@@ -59,11 +59,11 @@
                                     ? $row['hero_image'] 
                                     : '';
                         echo '<article class="recipe-card">';
-                        echo '<a href="recipe.php?id=' . $row['id'] . '">'; // link = recipe id
-                        echo '<img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row['recipe_name']) . '">';
-                        echo '<h4>' . htmlspecialchars($row['recipe_name']) . '</h4>';
-                        echo '</a>';
-                        echo '<p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>';
+                            echo '<a href="recipe.php?id=' . $row['id'] . '">'; // link = recipe id
+                                echo '<img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row['recipe_name']) . '">';
+                                echo '<h4>' . htmlspecialchars($row['recipe_name']) . '</h4>';
+                                echo '<p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>';
+                            echo '</a>';
                         echo '</article>';
                     }
                 } else {
