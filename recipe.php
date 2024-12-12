@@ -83,7 +83,7 @@ ini_set('display_startup_errors', 1);
                         }
                     echo '</ul>
                 </section>';
-                // recipe steps
+                // recipe steps: step image, step number, step description
                 echo '<section class="recipe-steps">';
                     // separate images by character '|'
                     $stepImages = explode("|", $recipe['steps_images']);
@@ -100,6 +100,8 @@ ini_set('display_startup_errors', 1);
                         </div>';
                     }
                 echo '</section>';
+                // close the connection
+                $connection->close();
             ?>
         </section>
     </main>
