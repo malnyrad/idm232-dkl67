@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -49,61 +48,59 @@ ini_set('display_startup_errors', 1);
         </div>
     </header>
     <main>
-        <section>
-            <?php    
-                // recipe stats: title, hero image, cook time, servings, description
-                echo '<section class="recipe-stats">
-                    <h3>' . htmlspecialchars($recipe['recipe']) . '</h3>
-                    <h4>' . htmlspecialchars($recipe['subtitle']) . '</h4>
-                    <div class="cook-time">
-                        <i class="fa fa-clock-o"></i>
-                        <p>' . htmlspecialchars($recipe['cook_time']) . '</p>
-                    </div>
-                    <p>' . htmlspecialchars($recipe['servings']) . '</p>';
-                    if (!empty($recipe['hero_image'])) {
-                        echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" loading="lazy"/>';
-                    }
-                    echo '<p>' . htmlspecialchars($recipe['description']) . '</p>';
-                echo '</section>';
-                // recipe ingredients: ingredients image, ingredient list
-                echo '<section class="recipe-ingredients">';
-                    if (!empty($recipe['ingredients_image'])) {
-                        echo '<img src="' . htmlspecialchars($recipe['ingredients_image']) . '" alt="ingredients for ' . htmlspecialchars($recipe['recipe_name']) . '">';
-                    }
-                    echo '<h3>Ingredients</h3>
-                    <ul>';
-                        // separate ingredients by line
-                        $ingredientList = explode("\n", $recipe['ingredients']);
-                        foreach ($ingredientList as $ingredient) {
-                            // trim extra spaces for consistency
-                            $ingredient = htmlspecialchars(trim($ingredient)); 
-                            if (!empty($ingredient)) {
-                                echo '<li>' . $ingredient . '</li>';
-                            }
+        <?php    
+            // recipe stats: title, hero image, cook time, servings, description
+            echo '<section class="recipe-stats">
+                <h3>' . htmlspecialchars($recipe['recipe']) . '</h3>
+                <h4>' . htmlspecialchars($recipe['subtitle']) . '</h4>
+                <div class="cook-time">
+                    <i class="fa fa-clock-o"></i>
+                    <p>' . htmlspecialchars($recipe['cook_time']) . '</p>
+                </div>
+                <p>' . htmlspecialchars($recipe['servings']) . '</p>';
+                if (!empty($recipe['hero_image'])) {
+                    echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" loading="lazy"/>';
+                }
+                echo '<p>' . htmlspecialchars($recipe['description']) . '</p>';
+            echo '</section>';
+            // recipe ingredients: ingredients image, ingredient list
+            echo '<section class="recipe-ingredients">';
+                if (!empty($recipe['ingredients_image'])) {
+                    echo '<img src="' . htmlspecialchars($recipe['ingredients_image']) . '" alt="ingredients for ' . htmlspecialchars($recipe['recipe_name']) . '">';
+                }
+                echo '<h3>Ingredients</h3>
+                <ul>';
+                    // separate ingredients by line
+                    $ingredientList = explode("\n", $recipe['ingredients']);
+                    foreach ($ingredientList as $ingredient) {
+                        // trim extra spaces for consistency
+                        $ingredient = htmlspecialchars(trim($ingredient)); 
+                        if (!empty($ingredient)) {
+                            echo '<li>' . $ingredient . '</li>';
                         }
-                    echo '</ul>
-                </section>';
-                // recipe steps: step image, step number, step description
-                echo '<section class="recipe-steps">';
-                    // separate images by character '|'
-                    $stepImages = explode("|", $recipe['steps_images']);
-                    // display corresponding steps with images
-                    $steps = explode("*", $recipe['steps']);
-                    foreach ($steps as $index => $step) {
-                        // fetch associated step image
-                        if (isset($stepImages[$index])) {
-                            echo '<img src="' . htmlspecialchars(trim($stepImages[$index])) . '" alt="step ' . ($index + 1) . ' image" loading="lazy"/>';
-                        }
-                        echo '<div>
-                            <p>' . ($index + 1) . '</p>
-                            <p>' . htmlspecialchars(trim($step)) . '</p>
-                        </div>';
                     }
-                echo '</section>';
-                // close the connection
-                $connection->close();
-            ?>
-        </section>
+                echo '</ul>
+            </section>';
+            // recipe steps: step image, step number, step description
+            echo '<section class="recipe-steps">';
+                // separate images by character '|'
+                $stepImages = explode("|", $recipe['steps_images']);
+                // display corresponding steps with images
+                $steps = explode("*", $recipe['steps']);
+                foreach ($steps as $index => $step) {
+                    // fetch associated step image
+                    if (isset($stepImages[$index])) {
+                        echo '<img src="' . htmlspecialchars(trim($stepImages[$index])) . '" alt="step ' . ($index + 1) . ' image" loading="lazy"/>';
+                    }
+                    echo '<div>
+                        <p>' . ($index + 1) . '</p>
+                        <p>' . htmlspecialchars(trim($step)) . '</p>
+                    </div>';
+                }
+            echo '</section>';
+            // close the connection
+            $connection->close();
+        ?>
     </main>
 </body>
 </html>
