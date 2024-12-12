@@ -46,7 +46,6 @@
                 }
             ?>
 
-
             <?php
                 echo '<section class="recipe-stats">';
                     echo '<h3>' . htmlspecialchars($recipe['recipe']) . '</h3>';
@@ -58,13 +57,25 @@
                     echo '<p>' . htmlspecialchars($recipe['servings']) . '</p>';
                     if (!empty($recipe['hero_image'])) {
                         echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
-                    } else {
-                        echo '<p>Image not available.</p>';
                     }
                     echo '<p>' . htmlspecialchars($recipe['description']) . '</p>';
                 echo '</section>';
-
-
+                echo '<section class="recipe-ingredients">';
+                    if (!empty($recipe['ingredients_image'])) {
+                        echo '<img src="' . htmlspecialchars($recipe['ingredients_image']) . '" alt="Ingredients for ' . htmlspecialchars($recipe['recipe_name']) . '">';
+                    }
+                    echo '<h3>Ingredients</h3>';
+                    echo '<ul>';
+                        $ingredientList = explode("\n", $recipe['ingredients']); // separate ingredients by line
+                        foreach ($ingredientList as $ingredient) {
+                            // trim extra spaces for consistency
+                            $ingredient = htmlspecialchars(trim($ingredient)); 
+                            if (!empty($ingredient)) {
+                                echo '<li>' . $ingredient . '</li>';
+                            }
+                        }
+                    echo '</ul>';
+                echo '</section>';
             ?>
 
         </section>
