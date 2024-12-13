@@ -46,8 +46,10 @@
                         echo '<article class="recipe-card">
                             <a href="recipe.php?id=' . $row['id'] . '">
                                 <img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row['recipe_name']) . '" loading="lazy"/>
-                                <h4>' . htmlspecialchars($row['recipe_name']) . '</h4>
-                                <p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>
+                                <div class="recipe-card-text">
+                                    <h4>' . htmlspecialchars($row['recipe_name']) . '</h4>
+                                    <p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>
+                                </div>
                             </a>
                         </article>';
                     }

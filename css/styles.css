@@ -23,9 +23,11 @@
 html {
     --schibsted-grotesk: 'Schibsted Grotesk', Helvetica, Arial, sans-serif;
     --black: #19131A;
-    --white: #F4F1EA;
-    --green: #5A745B;
+    --white: #FFFFFF;
+    --green: #4A5E4A;
     --orange: #D57A66;
+
+    background-color: var(--white);
 }
 
 /*text*/
@@ -55,7 +57,7 @@ h2 {
 h3 {
     color: var(--black);
     font-family: var(--schibsted-grotesk);
-    font-size: max(3vw, 24px);
+    font-size: max(24px, 3vw);
     font-style: normal;
     font-weight: 600;
     line-height: 100%;
@@ -65,28 +67,17 @@ h3 {
 h4 {
     color: var(--black);
     font-family: var(--schibsted-grotesk);
-    font-size: max(1vw, 14px);
+    font-size: max(16px, 1.5vw);
     font-style: italic;
     font-weight: 400;
     line-height: 100%;
     margin: 0;
 }
 
-p {
+p, ul {
     color: var(--black);
     font-family: var(--schibsted-grotesk);
-    font-size: max(1.25vw, 12px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    margin: 0;
-    text-transform: lowercase;
-}
-
-ul {
-    color: var(--black);
-    font-family: var(--schibsted-grotesk);
-    font-size: max(1.25vw, 12px);
+    font-size: max(14px, 1.25vw);
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -121,17 +112,17 @@ a {
     margin-bottom: 1.5rem;
 }
 
+input[type=text] {
+    border: 2px solid var(--green);
+    font-size: max(1vw, 20px);
+    padding: 0.5vw;
+}
+
 .search-box {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 0.5vw 1vw;
-}
-
-input[type=text] {
-    border: 2px solid var(--green);
-    font-size: max(1vw, 20px);
-    padding: 0.5vw;
 }
 
 .search-box button {
@@ -155,8 +146,8 @@ input[type=text] {
 
 .recipes-container {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 1em;
+    grid-template-columns: 1fr;
     padding: 1rem;
   }
 
@@ -175,15 +166,48 @@ input[type=text] {
 /*recipe card*/
 
 .recipe-card {
-border: 1px solid #ccc;
-overflow: hidden;
-text-align: center;
-padding: 1rem;
+    background-color: var(--white);
+    border: 1px solid var(--green);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+}
+
+.recipe-card:hover {
+    background-color: var(--green);
+    transform: translateY(-2px);
 }
 
 .recipe-card img {
-    width: 100%;
     height: auto;
+    width: 100%;
+}
+
+.recipe-card-text {
+    padding: 0.75rem;
+}
+
+.recipe-card-text h4 {
+    color: var(--green);
+    font-size: max(2vw, 18px);
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+}
+
+@media (min-width: 900px) {
+    .recipe-card-text h4 {
+        font-size: max(1.5vw, 16px);
+    }
+}
+
+.recipe-card-text p {
+    color: var(--green)
+}
+
+.recipe-card:hover h4, .recipe-card:hover p {
+    color: var(--white);
 }
 
 /*recipe page*/
