@@ -6,6 +6,10 @@ ini_set('display_startup_errors', 1);
     // connect to database
     require_once 'database_connection.php';
     $connection = mysqli_connect($host, $user, $password, $database);
+    // check connection
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
 
     // check if id is provided in url
     if (isset($_GET['id'])) {

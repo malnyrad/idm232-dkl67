@@ -11,7 +11,7 @@
     <?php include_once 'header.php' ?>
     <main>
         <section class="search-container">
-            <h3>RECIPES</h3>
+            <h3>Recipes</h3>
             <form class="search-box" action="search.php" method="post">
               <input class="search-text" type="text" placeholder="search..." name="search">
               <button type="submit"><i class="fa fa-search"></i></button>
@@ -22,12 +22,11 @@
                 // connect to database
                 require_once 'database_connection.php';
                 $connection = mysqli_connect($host, $user, $password, $database);
-
                 // check connection
                 if ($connection->connect_error) {
                     die("Connection failed: " . $connection->connect_error);
                 }
-                
+
                 // check for search form submission
                 if (isset($_POST['search'])) {
                     // get query
@@ -51,13 +50,13 @@
                         $imagePath = (!empty($row['hero_image']) && file_exists($row['hero_image'])) 
                                     ? $row['hero_image'] 
                                     : '';
-                        echo '<article class="recipe-card">';
-                            echo '<a href="recipe.php?id=' . $row['id'] . '">'; // link = recipe id
-                                echo '<img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row['recipe_name']) . '">';
-                                echo '<h4>' . htmlspecialchars($row['recipe_name']) . '</h4>';
-                                echo '<p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>';
-                            echo '</a>';
-                        echo '</article>';
+                        echo '<article class="recipe-card">
+                            <a href="recipe.php?id=' . $row['id'] . '">
+                                <img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row['recipe_name']) . '">
+                                <h4>' . htmlspecialchars($row['recipe_name']) . '</h4>
+                                <p>' . htmlspecialchars($row['cuisine']) . ' | ' . $row['cook_time'] . ' | ' . $row['servings'] . '</p>
+                            </a>
+                        </article>';
                     }
                 } else {
                     echo '<p>No recipes found. Try searching again.</p>';
