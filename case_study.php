@@ -24,6 +24,10 @@
             <br><br>
             The code for the project began with building out static pages using HTML and CSS, focusing on creating a basic but responsive layout of the website in preparation for PHP implementation further into the term. With a base structure in place, the next step was building the database to store the nearly 40 recipes worth of text and images. While creating a spreadsheet in Excel with the of my classmates was already a time-consuming process, even more time was spent on figuring out PHPMyAdmin and successfully importing my database in a way that could be easily be fetched with PHP.</p>
         </section>
+        <section class="case-content">
+            <h3>The Results</h3>
+            <p>I was pretty happy with the outcome of this project, especially as a first experience with a new coding language. The end result is a fully-functional, dynamic website that integrates a sizable database through server-side scripting- something that would have been nigh impossible to do statically. If I were to continue with this website, I'd like to implement filtering options and possibly functionality that would allow adding new recipes to the database.</p>
+        </section>
     </main>
 </body>
 </html>
