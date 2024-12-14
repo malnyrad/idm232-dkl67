@@ -50,15 +50,14 @@
             echo '<section class="recipe-stats">
                 <h3>' . htmlspecialchars($recipe['recipe']) . '</h3>
                 <h4>' . htmlspecialchars($recipe['subtitle']) . '</h4>
-                <div class="cook-time">
-                    <i class="fa fa-clock-o"></i>
-                    <p>' . htmlspecialchars($recipe['cook_time']) . '</p>
-                </div>
-                <p>' . htmlspecialchars($recipe['servings']) . '</p>';
+                <div class="recipe-stats-numbers">
+                    <i class="fa fa-clock-o logo"></i>
+                    <p class="numbers">' . htmlspecialchars($recipe['cook_time']) . ' | ' . htmlspecialchars($recipe['servings']) . '</p>
+                </div>';
                 if (!empty($recipe['hero_image'])) {
                     echo '<img src="' . htmlspecialchars($recipe['hero_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" loading="lazy"/>';
                 }
-                echo '<p>' . htmlspecialchars($recipe['description']) . '</p>';
+                echo '<p class="description">' . htmlspecialchars($recipe['description']) . '</p>';
             echo '</section>';
             // recipe ingredients: ingredients image, ingredient list
             echo '<section class="recipe-ingredients">';
@@ -79,7 +78,8 @@
                 echo '</ul>
             </section>';
             // recipe steps: step image, step number, step description
-            echo '<section class="recipe-steps">';
+            echo '<section class="recipe-steps">
+                <h3>Steps</h3>';
                 // separate images by character '|'
                 $stepImages = explode("|", $recipe['steps_images']);
                 // display corresponding steps with images
@@ -89,8 +89,8 @@
                     if (isset($stepImages[$index])) {
                         echo '<img src="' . htmlspecialchars(trim($stepImages[$index])) . '" alt="step ' . ($index + 1) . ' image" loading="lazy"/>';
                     }
-                    echo '<div>
-                        <p>' . ($index + 1) . '</p>
+                    echo '<div class="recipe-step">
+                        <p class="step-number">' . ($index + 1) . '</p>
                         <p>' . htmlspecialchars(trim($step)) . '</p>
                     </div>';
                 }
