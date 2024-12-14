@@ -101,8 +101,6 @@ a {
 /*navigation*/
 
 .navigation {
-    padding-bottom: 1.5rem;
-    padding-top: 0.5rem;
     position: relative;
     z-index: 2;
 }
@@ -117,22 +115,39 @@ a {
     }
 }
 
-.navigation a {
+.navigation-link {
     color: var(--green);
-    display: block;
-    float: left;
+    display: inline-block;
     font-size: max(20px, 2vw);
-    padding: 0.5rem;
+    margin: 0px 10px;
+    padding: 10px 0px;
+    position: relative;
 }
 
-@media (min-width: 900px) {
-    .navigation a {
-        padding: 0.5rem 0.75rem;
-    }
+.navigation-link::before {
+    background-color: var(--orange);
+    content: "";
+    height: 5px;
+    position: absolute;
+    transition: 300ms;
+}
+
+.left-to-right::before {
+    width: 0%;
+    bottom: 5px;
+}
+
+.left-to-right:hover::before {
+    width: 100%;
 }
 
 .navigation .logo, .logo {
     color: var(--orange);
+}
+
+.navigation .logo {
+    font-size: max(24px, 2.5vw);
+    margin: 10px 5px 0 10px;
 }
 
 /*search bar*/
@@ -351,9 +366,30 @@ p.step-number {
     align-items: center;
     display: flex;
     flex-direction: column;
+    height: 100%;
     position: relative;
+    top: 7.5vh;
     width: 100%;
     z-index: 2;
+}
+
+@media (max-width: 1250px) {
+    .hero-block {
+        top: 12.5vh;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .hero-block {
+        top: 20vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-block {
+        top: 25vh;
+    }
 }
 
 .hero-block h4 {
@@ -367,15 +403,27 @@ p.step-number {
     position: absolute;
     right: 37vw;
     rotate: 206deg;
-    top: -5vw;
+    top: -0.75vw;
     width: 25vw;
     z-index: 1;
 }
 
-.center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+@media (max-width: 800px) {
+    .fork {
+        top: 2.25vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .fork {
+        top: 5vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .fork {
+        top: 10vw;
+    }
 }
 
 /*case study page*/
