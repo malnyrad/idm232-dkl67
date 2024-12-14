@@ -403,26 +403,32 @@ p.step-number {
     position: absolute;
     right: 37vw;
     rotate: 206deg;
-    top: -0.75vw;
+    top: -5vh;
     width: 25vw;
     z-index: 1;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1250px) {
     .fork {
-        top: 2.25vw;
+        top: 10vh;
+    }
+}
+
+@media (max-width: 1000px) {
+    .fork {
+        top: 20vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .fork {
+        top: 25vh;
     }
 }
 
 @media (max-width: 600px) {
     .fork {
-        top: 5vw;
-    }
-}
-
-@media (max-width: 500px) {
-    .fork {
-        top: 10vw;
+        top: 30vh;
     }
 }
 
