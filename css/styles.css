@@ -110,8 +110,6 @@ a {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        padding: 0.5rem;
-        padding-bottom: 2rem;
     }
 }
 
@@ -303,8 +301,18 @@ input[type=text] {
 }
 
 .recipe-stats p.description {
+    border-left: 5px solid var(--orange);
     font-style: italic;
+    padding-left: 1rem;
     width: 50%;
+}
+
+.recipe-stats p.description::before {
+    content: '\201C';
+}
+
+.recipe-stats p.description::after {
+    content: '\201D';
 }
 
 .recipe-ingredients, .recipe-steps {
@@ -324,8 +332,10 @@ input[type=text] {
     margin-bottom: 0.5rem;
 }
 
-ul {
-    list-style-image: url('../files/fork.svg');
+.recipe-ingredients ul {
+    line-height: 175%;
+    list-style-type: '🍴';
+    margin-top: 1.5rem;
 }
 
 .recipe-step {
@@ -360,7 +370,7 @@ p.step-number {
     font-weight: 600;
 }
 
-/**/
+/*home page*/
 
 .hero-block {
     align-items: center;
