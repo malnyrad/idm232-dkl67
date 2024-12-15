@@ -386,6 +386,19 @@ input[type=text] {
     line-height: 200%;
     list-style-type: '🍴';
     margin-top: 1.5rem;
+    width: 50%
+}
+
+@media (max-width: 1250px) {
+    .recipe-ingredients ul {
+        width: 60%;
+    }
+}
+
+@media (max-width: 800px) {
+    .recipe-ingredients ul {
+        width: 75%;
+    }
 }
 
 li span {
