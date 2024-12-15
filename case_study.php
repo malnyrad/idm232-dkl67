@@ -29,5 +29,6 @@
             <p>I was pretty happy with the outcome of this project, especially as a first experience with a new coding language. The end result is a fully-functional, dynamic website that integrates a sizable database through server-side scripting- something that would have been nigh impossible to do statically. If I were to continue with this website, I'd like to implement filtering options and possibly functionality that would allow adding new recipes to the database.</p>
         </section>
     </main>
+    <?php include_once 'footer.php' ?>
 </body>
 </html>
