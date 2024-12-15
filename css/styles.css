@@ -32,6 +32,7 @@ html {
     --orange: #D57A66;
 
     background-color: var(--white);
+    scroll-behavior: smooth;
 }
 
 /*text*/
@@ -283,6 +284,7 @@ input[type=text] {
 }
 
 .recipe-stats h3 {
+    border-bottom: 5px solid var(--orange);
     text-align: center;
 }
 
@@ -376,6 +378,7 @@ input[type=text] {
 }
 
 .recipe-ingredients h3, .recipe-steps h3 {
+    border-bottom: 5px solid var(--orange);
     margin-bottom: 0.5rem;
 }
 
@@ -576,4 +579,13 @@ details[open] span.step-number::before {
 
 .case-content p {
     font-size: max(12px, 1vw);
+}
+
+/*footer*/
+
+.footer-fork {
+    display: block;
+    filter: invert(59%) sepia(51%) saturate(434%) hue-rotate(323deg) brightness(84%) contrast(98%);
+    margin: 0 auto 2rem auto;
+    width: 3rem;
 }
