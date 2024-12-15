@@ -13,6 +13,6 @@
         <h1>FORK'D</h1>
         <h2>find your next bite</h2>
     </section>
-    <img src="files\fork.svg" class="fork">
+    <img src="files\fork.svg" class="fork"/>
 </body>
 </html>
