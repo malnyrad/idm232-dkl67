@@ -333,20 +333,75 @@ input[type=text] {
 }
 
 .recipe-ingredients ul {
-    line-height: 175%;
+    line-height: 200%;
     list-style-type: '🍴';
     margin-top: 1.5rem;
 }
 
+li span {
+    left: 8px;
+    position: relative;
+}
+
 .recipe-step {
-    border: 1px solid var(--green);
-    padding: 0.5rem;
     width: 50%;
 }
 
-p.step-number {
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+summary {
+    display: block;
+}
+
+span.step-number {
+    align-items: center;
+    background-color: var(--green);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    font-family: var(--schibsted-grotesk);
     font-size: max(16px, 1.5vw);
     font-weight: 600;
+    height: 2rem;
+    padding-left: 0.75rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+span.step-number:hover {
+    cursor: pointer;
+}
+
+span.step-number::before {
+    align-items: center;
+    content: '►';
+    display: flex;
+    flex-direction: row;
+    font-family: var(--schibsted-grotesk);
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    transition: rotate 200ms 400ms ease-out;
+}
+
+.step-content {
+    border: 2px solid transparent;
+    max-height: 0;
+    overflow: hidden;
+    padding: 5px 10px;
+    transition: max-height 400ms ease-out, border 0ms 400ms linear;
+}
+
+details[open] + .step-content {
+    border-color: var(--green);
+    max-height: 800px;
+    transition: max-height 400ms ease-out, border 0ms linear;
+}
+
+details[open] span.step-number::before {
+    rotate: 90deg;
+    transition: rotate 200ms ease-out;
 }
 
 /*help page*/
@@ -388,7 +443,6 @@ p.step-number {
         top: 12.5vh;
     }
 }
-
 
 @media (max-width: 1000px) {
     .hero-block {

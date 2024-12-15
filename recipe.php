@@ -72,7 +72,7 @@
                         // trim extra spaces for consistency
                         $ingredient = htmlspecialchars(trim($ingredient)); 
                         if (!empty($ingredient)) {
-                            echo '<li>' . $ingredient . '</li>';
+                            echo '<li><span>' . $ingredient . '</span></li>';
                         }
                     }
                 echo '</ul>
@@ -90,8 +90,14 @@
                         echo '<img src="' . htmlspecialchars(trim($stepImages[$index])) . '" alt="step ' . ($index + 1) . ' image" loading="lazy"/>';
                     }
                     echo '<div class="recipe-step">
-                        <p class="step-number">' . ($index + 1) . '</p>
-                        <p>' . htmlspecialchars(trim($step)) . '</p>
+                        <details>
+                            <summary>
+                                <span class="step-number">Step ' . ($index + 1) . '</span>
+                            </summary>
+                        </details>
+                        <div class="step-content">
+                            <p>' . htmlspecialchars(trim($step)) . '</p>
+                        </div>
                     </div>';
                 }
             echo '</section>';
