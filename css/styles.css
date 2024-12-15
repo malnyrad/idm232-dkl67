@@ -127,7 +127,7 @@ a {
     content: "";
     height: 5px;
     position: absolute;
-    transition: 300ms;
+    transition: 0.5s;
 }
 
 .left-to-right::before {
@@ -191,6 +191,11 @@ input[type=text] {
     border-left: none;
     font-size: max(20px, 2.25vw);
     padding: 0.5rem 1rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.search-box button:hover {
+    background-color: var(--orange);
 }
 
 .search-text::placeholder {
@@ -225,7 +230,7 @@ input[type=text] {
 
 .recipe-card {
     background-color: var(--white);
-    border: 1px solid var(--green);
+    border: 2px solid var(--green);
     overflow: hidden;
     text-align: center;
     transition: all 0.25s ease-in-out;
@@ -382,7 +387,7 @@ span.step-number::before {
     font-family: var(--schibsted-grotesk);
     font-size: 1rem;
     margin-right: 0.5rem;
-    transition: rotate 200ms 400ms ease-out;
+    transition: rotate 0.25s 0.5s ease-out;
 }
 
 .step-content {
@@ -390,18 +395,18 @@ span.step-number::before {
     max-height: 0;
     overflow: hidden;
     padding: 5px 10px;
-    transition: max-height 400ms ease-out, border 0ms 400ms linear;
+    transition: max-height 0.5s ease-out, border 0s 0.5s linear;
 }
 
 details[open] + .step-content {
     border-color: var(--green);
     max-height: 800px;
-    transition: max-height 400ms ease-out, border 0ms linear;
+    transition: max-height 0.5s ease-out, border 0s linear;
 }
 
 details[open] span.step-number::before {
     rotate: 90deg;
-    transition: rotate 200ms ease-out;
+    transition: rotate 0.25s ease-out;
 }
 
 /*help page*/
